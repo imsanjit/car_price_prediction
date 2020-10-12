@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Predition</title>
+    <meta name="description" content="Car Price Predition">
+</head>
+<body>
+
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1>Car Price Predition</h1>
+            <h3>{{ prediction_text }}</h3>
+
+            <form action="{{ url_for('predict')}}" method="POST" class="flex-center flex-column">
+
+                <label for='year'>Year of the car when it was bought?</label>
+                <input type="number" class=form-input name='Year' placeholder="2013" required="required">
+
+                <label for='Present_Price'>What is the Showroom Price?(In lakhs)</label>
+                <input type="number" class=form-input name='Present_Price' placeholder="30.25 Lakhs" required="required">
+
+                <label for='Kms_Driven'>How Many Kilometers Drived?</label>
+                <input type="number" class=form-input name='Kms_Driven' placeholder="3000 KMs" required="required">
+
+                <label for='Owner'>How much owners previously had the car?</label>
+                <select name="Owner" id="Owner" required="required">
+                    <option value="0">1st Owner</option>
+                    <option value="1">2nd Owner</option>
+                    <option value="2">3rd Owner</option>
+                </select>
+
+                <label for='Fuel_Type_Petrol'>What Is the Fuel type?</label>
+                <select name="Fuel_Type_Petrol" required="required">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+
+                <label for='Seller_Type_Individual'>Are you A Dealer or Individual?</label>
+                <select name="Seller_Type_Individual" required="required">
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+
+                <label for='Transmission_Mannual'>Transmission type?</label>
+                <select name="Transmission_Mannual" required="required">
+                    <option value="Mannual">Manual Car</option>
+                    <option value="Automatic">Automatic Car</option>
+                </select>
+
+
+                <button type="submit" class="btn">Calculate Car Selling Price</button>
+            </form>
+
+        </div>
+    </div>
+    
+</body>
+
+<style type="text/css">
+    :root {
+        background-color: #ecf5ff;
+        font-size: 62.5%;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    h1 {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        font-size: 5.4rem;
+        color: #56a5eb;
+    }
+
+    h3{
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        font-size: 3.8rem;
+        color: rgb(11, 255, 32);
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    .container>* {
+        width: 100%;
+    }
+
+    .flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex-center {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        width: 25rem;
+        text-align: center;
+        border: 0.1rem solid #56a5eb;
+        margin-bottom: 1rem;
+        margin-top: 3rem;
+        text-decoration: none;
+        color: #56a5eb;
+        background-color: white;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+        box-shadow: 0 0.4rem 1.4rem 0 rgb(86, 185, 235, 0.5);
+        transform: translateY(-0.1rem);
+        transition: transform 150ms;
+    }
+
+    .form-input, select {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        width: 35rem;
+        text-align: center;
+        border: 0.1rem solid #56a5eb;
+        margin-bottom: 2rem;
+        color: #56a5eb;
+        background-color: white;
+    }
+
+    label {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .msg {
+        margin-top: 4rem;
+    }
+</style>
+
+</html>
